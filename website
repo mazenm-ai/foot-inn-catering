@@ -1,0 +1,463 @@
+import React, { useState, useEffect } from 'react';
+import { 
+  Phone, 
+  Mail, 
+  MapPin, 
+  Clock, 
+  CheckCircle, 
+  Users, 
+  ChevronRight, 
+  Instagram, 
+  Facebook,
+  Star,
+  Menu as MenuIcon,
+  X,
+  ArrowRight,
+  ExternalLink
+} from 'lucide-react';
+
+const App = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState('all');
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // --- EDITING ITEMS: Add or remove objects in this list ---
+  const menuItems = [
+    { id: 1, category: 'appetizers', name: 'Artisan Charcuterie Board', desc: 'Cured meats, local Ottawa cheeses, house-made preserves.', size: 'Serves 10-15', price: '$85' },
+    { id: 2, category: 'main', name: 'Herbed Roast Chicken', desc: 'Slow-roasted with lemon, thyme, and seasonal root vegetables.', size: 'Per person', price: '$24' },
+    { id: 3, category: 'platters', name: 'Mediterranean Mezze', desc: 'Hummus, tabouleh, stuffed vine leaves, and warm pita.', size: 'Serves 20', price: '$110' },
+    { id: 4, category: 'desserts', name: 'Signature Mini Tarts', desc: 'Assorted seasonal fruit and dark chocolate ganache tarts.', size: 'Dozen', price: '$32' },
+    { id: 5, category: 'main', name: 'Atlantic Salmon Fillet', desc: 'Maple-glazed salmon with wild rice pilaf and asparagus.', size: 'Per person', price: '$28' },
+    // NEW ITEM ADDED BELOW AS AN EXAMPLE:
+    { id: 6, category: 'main', name: 'Chef\'s Special Beef Short Rib', desc: '48-hour braised beef with garlic mash and red wine reduction.', size: 'Per person', price: '$32' },
+  ];
+
+  const filteredMenu = activeTab === 'all' ? menuItems : menuItems.filter(i => i.category === activeTab);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormSubmitted(true);
+    setTimeout(() => setFormSubmitted(false), 5000);
+  };
+
+  return (
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#D4AF37] selection:text-white">
+      
+      {/* --- STICKY NAVIGATION --- */}
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-6'}`}>
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+          <div className={`text-2xl font-bold tracking-tight transition-colors ${scrolled ? 'text-[#1A3626]' : 'text-white'}`}>
+            FOOD<span className="text-[#D4AF37]">INN</span>
+          </div>
+          
+          <div className="hidden md:flex items-center space-x-8">
+            {['Services', 'Menu', 'About', 'Gallery'].map((item) => (
+              <a 
+                key={item} 
+                href={`#${item.toLowerCase()}`} 
+                className={`text-sm font-medium transition-colors hover:text-[#D4AF37] ${scrolled ? 'text-slate-700' : 'text-white'}`}
+              >
+                {item}
+              </a>
+            ))}
+            <a 
+              href="#quote" 
+              className="bg-[#D4AF37] hover:bg-[#c4a032] text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg transition-all transform hover:scale-105"
+            >
+              Get a Free Quote
+            </a>
+          </div>
+
+          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X className={scrolled ? 'text-slate-900' : 'text-white'} /> : <MenuIcon className={scrolled ? 'text-slate-900' : 'text-white'} />}
+          </button>
+        </div>
+        
+        {/* Mobile Nav */}
+        {isMenuOpen && (
+          <div className="absolute top-full left-0 w-full bg-white shadow-xl py-6 flex flex-col items-center space-y-4 md:hidden border-t">
+            <a href="#services" onClick={() => setIsMenuOpen(false)}>Services</a>
+            <a href="#menu" onClick={() => setIsMenuOpen(false)}>Menu</a>
+            <a href="#quote" className="bg-[#D4AF37] text-white px-8 py-3 rounded-full font-bold">Get a Quote</a>
+          </div>
+        )}
+      </nav>
+
+      {/* --- HERO SECTION --- */}
+      <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          {/* TO REPLACE IMAGE: Change the URL in the src below */}
+          <img 
+            src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2070&auto=format&fit=crop" 
+            className="w-full h-full object-cover" 
+            alt="Elegant catering setup"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1A3626]/90 to-black/40"></div>
+        </div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-white pt-20">
+          <div className="max-w-2xl animate-fade-in-up">
+            <h1 className="text-5xl md:text-7xl font-serif mb-6 leading-tight">
+              Premium Catering in <span className="text-[#D4AF37]">Ottawa</span> for Every Occasion
+            </h1>
+            <p className="text-xl md:text-2xl mb-10 text-slate-200 font-light leading-relaxed">
+              Fresh, flavorful, and professionally served. From executive boardrooms to elegant weddings, we bring culinary excellence to your doorstep.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a href="#quote" className="bg-[#D4AF37] hover:bg-[#c4a032] text-white px-10 py-4 rounded-full text-lg font-bold flex items-center justify-center group shadow-xl">
+                Get a Free Quote <ChevronRight className="ml-2 group-hover:translate-x-1 transition" />
+              </a>
+              <a href="tel:+16135550199" className="bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white px-10 py-4 rounded-full text-lg font-bold flex items-center justify-center transition">
+                <Phone className="mr-2 w-5 h-5" /> Call Now
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Floating Urgency Tag */}
+        <div className="absolute bottom-10 right-10 hidden lg:block animate-bounce">
+          <div className="bg-white p-4 rounded-xl shadow-2xl flex items-center space-x-3 border-l-4 border-[#D4AF37]">
+            <Clock className="text-[#D4AF37]" />
+            <div>
+              <p className="text-xs uppercase tracking-wider text-slate-500 font-bold">Availability</p>
+              <p className="text-sm font-bold">Booking fast for Summer 2024</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- TRUST BADGES --- */}
+      <section className="py-12 bg-[#F8F9FA] border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            { icon: <Clock />, title: 'On-Time Delivery', desc: 'Precision timing for every corporate meeting.' },
+            { icon: <CheckCircle />, title: 'Fresh Ingredients', desc: 'Sourced daily from local Ottawa growers.' },
+            { icon: <Users />, title: 'Custom Menus', desc: 'Tailored for dietary needs & event themes.' }
+          ].map((badge, idx) => (
+            <div key={idx} className="flex items-center space-x-4">
+              <div className="p-3 bg-white rounded-full text-[#D4AF37] shadow-sm">{badge.icon}</div>
+              <div>
+                <h3 className="font-bold text-[#1A3626]">{badge.title}</h3>
+                <p className="text-sm text-slate-500">{badge.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* --- SERVICES SECTION --- */}
+      <section id="services" className="py-24 max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-serif text-[#1A3626] mb-4">Exceptional Services</h2>
+          <div className="w-20 h-1 bg-[#D4AF37] mx-auto"></div>
+        </div>
+        
+        <div className="grid md:grid-cols-3 gap-10">
+          {[
+            { 
+              title: 'Corporate Catering', 
+              img: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2070&auto=format&fit=crop',
+              desc: 'Punctual breakfast, lunches, and all-day meeting packages designed for the professional environment.'
+            },
+            { 
+              title: 'Wedding Events', 
+              img: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop',
+              desc: 'Exquisite multi-course meals and elegant service to make your special day absolutely unforgettable.'
+            },
+            { 
+              title: 'Private Parties', 
+              img: 'https://images.unsplash.com/photo-1530103043960-ef38714abb15?q=80&w=2069&auto=format&fit=crop',
+              desc: 'From intimate birthdays to backyard celebrations, we provide the food while you enjoy the host role.'
+            }
+          ].map((service, idx) => (
+            <div key={idx} className="group cursor-pointer">
+              <div className="overflow-hidden rounded-2xl mb-6 shadow-lg">
+                <img src={service.img} alt={service.title} className="w-full h-64 object-cover group-hover:scale-110 transition duration-500" />
+              </div>
+              <h3 className="text-2xl font-serif mb-3 text-[#1A3626]">{service.title}</h3>
+              <p className="text-slate-600 mb-4 line-clamp-2">{service.desc}</p>
+              <a href="#quote" className="text-[#D4AF37] font-bold flex items-center">
+                Learn More <ChevronRight className="w-4 h-4 ml-1" />
+              </a>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* --- MENU HIGHLIGHTS --- */}
+      <section id="menu" className="py-24 bg-[#1A3626] text-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+              <h2 className="text-4xl font-serif mb-4">Our Catering Menu</h2>
+              <p className="text-slate-400 max-w-xl">A glimpse into our chef-curated selections. All menus can be customized to your specific tastes.</p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {['all', 'appetizers', 'main', 'platters', 'desserts'].map(cat => (
+                <button 
+                  key={cat}
+                  onClick={() => setActiveTab(cat)}
+                  className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${activeTab === cat ? 'bg-[#D4AF37] text-white' : 'bg-white/10 text-white hover:bg-white/20'}`}
+                >
+                  {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {filteredMenu.map(item => (
+              <div key={item.id} className="bg-white/5 p-6 rounded-xl border border-white/10 hover:border-[#D4AF37]/50 transition group">
+                <div className="flex justify-between items-start mb-2">
+                  <h4 className="text-xl font-bold text-[#D4AF37]">{item.name}</h4>
+                  <span className="text-sm font-mono opacity-50">{item.price}</span>
+                </div>
+                <p className="text-slate-300 text-sm mb-4 leading-relaxed">{item.desc}</p>
+                <div className="flex items-center text-xs text-slate-500 font-bold uppercase tracking-widest">
+                  <Users className="w-3 h-3 mr-1" /> {item.size}
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-12 text-center">
+            {/* --- ADDING A LINK: Use an <a> tag with href and target="_blank" --- */}
+            <a 
+              href="https://google.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-2 border border-[#D4AF37] text-[#D4AF37] px-8 py-3 rounded-full font-bold hover:bg-[#D4AF37] hover:text-white transition"
+            >
+              <span>Download Full Menu PDF</span>
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* --- WHY CHOOSE US --- */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+          <div className="relative">
+            <div className="absolute -top-4 -left-4 w-24 h-24 bg-[#D4AF37]/20 rounded-full z-0"></div>
+            <img 
+              src="https://images.unsplash.com/photo-1547928576-a4a33237bee3?q=80&w=2080&auto=format&fit=crop" 
+              className="rounded-3xl shadow-2xl relative z-10 w-full h-[500px] object-cover" 
+              alt="Plating detail"
+            />
+          </div>
+          <div>
+            <h2 className="text-4xl font-serif text-[#1A3626] mb-8">Why Food Inn?</h2>
+            <div className="space-y-8">
+              {[
+                { title: 'Local Expertise', text: 'Serving the Ottawa community for over 10 years with locally sourced ingredients.' },
+                { title: 'Professional Setup', text: 'We don’t just drop off food; we create a full culinary experience with professional presentation.' },
+                { title: 'Stress-Free Booking', text: 'Our simplified quote system and fast response times keep your planning on track.' }
+              ].map((item, i) => (
+                <div key={i} className="flex space-x-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-[#D4AF37]/10 flex items-center justify-center rounded-lg text-[#D4AF37]">
+                    <CheckCircle className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg text-[#1A3626] mb-1">{item.title}</h4>
+                    <p className="text-slate-600 leading-relaxed">{item.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- QUOTE SECTION --- */}
+      <section id="quote" className="py-24 bg-[#F9FAFB] scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden grid md:grid-cols-5">
+            <div className="md:col-span-2 bg-[#1A3626] p-12 text-white flex flex-col justify-between">
+              <div>
+                <h2 className="text-3xl font-serif mb-6">Plan Your Event Today</h2>
+                <p className="text-slate-300 mb-8 font-light">
+                  Tell us a bit about your event and we’ll get back to you with a custom quote within 4 hours.
+                </p>
+                
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-4">
+                    <Phone className="text-[#D4AF37]" />
+                    <span>(613) 555-0199</span>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <Mail className="text-[#D4AF37]" />
+                    <span>hello@foodinncatering.ca</span>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <MapPin className="text-[#D4AF37]" />
+                    <span>123 Bank St, Ottawa, ON</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-12 p-6 bg-white/5 rounded-2xl border border-white/10">
+                <p className="text-sm font-bold text-[#D4AF37] mb-2 uppercase tracking-widest">Client Reviews</p>
+                <div className="flex text-[#D4AF37] mb-3">
+                  {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
+                </div>
+                <p className="italic text-sm text-slate-300">"The best corporate catering we've used in years. On time, professional, and delicious!"</p>
+                <p className="text-xs mt-2 font-bold">— Sarah T., Shopify</p>
+              </div>
+            </div>
+
+            <div className="md:col-span-3 p-12 relative">
+              {formSubmitted ? (
+                <div className="h-full flex flex-col items-center justify-center text-center animate-fade-in">
+                  <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-6">
+                    <CheckCircle size={40} />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2">Quote Request Sent!</h3>
+                  <p className="text-slate-500">Thank you for considering us. One of our event specialists will be in touch shortly.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Full Name</label>
+                      <input required type="text" className="w-full px-4 py-3 bg-slate-50 border-transparent border focus:border-[#D4AF37] focus:bg-white transition outline-none rounded-lg" placeholder="Jane Doe" />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Phone</label>
+                      <input required type="tel" className="w-full px-4 py-3 bg-slate-50 border-transparent border focus:border-[#D4AF37] focus:bg-white transition outline-none rounded-lg" placeholder="(613) 000-0000" />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Email Address</label>
+                    <input required type="email" className="w-full px-4 py-3 bg-slate-50 border-transparent border focus:border-[#D4AF37] focus:bg-white transition outline-none rounded-lg" placeholder="jane@company.com" />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Event Type</label>
+                      <select className="w-full px-4 py-3 bg-slate-50 border-transparent border focus:border-[#D4AF37] focus:bg-white transition outline-none rounded-lg">
+                        <option>Corporate Lunch</option>
+                        <option>Wedding</option>
+                        <option>Private Party</option>
+                        <option>Other</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Guests</label>
+                      <input type="number" className="w-full px-4 py-3 bg-slate-50 border-transparent border focus:border-[#D4AF37] focus:bg-white transition outline-none rounded-lg" placeholder="20" />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Message & Dietary Requests</label>
+                    <textarea rows="4" className="w-full px-4 py-3 bg-slate-50 border-transparent border focus:border-[#D4AF37] focus:bg-white transition outline-none rounded-lg" placeholder="Tell us more about your event..."></textarea>
+                  </div>
+
+                  <button className="w-full bg-[#1A3626] text-white py-4 rounded-lg font-bold text-lg hover:bg-slate-800 transition transform active:scale-95 shadow-xl">
+                    Request My Custom Quote
+                  </button>
+                  <p className="text-center text-xs text-slate-400">Fast Response Guarantee • Locally Owned</p>
+                </form>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- FOOTER --- */}
+      <footer className="bg-[#1A3626] text-white py-16">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
+          <div>
+            <div className="text-2xl font-bold mb-6">FOOD<span className="text-[#D4AF37]">INN</span></div>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              Serving premium culinary experiences across the Greater Ottawa Area. From private parties to global boardrooms.
+            </p>
+            <div className="flex space-x-4 mt-6">
+              <Facebook className="w-5 h-5 cursor-pointer hover:text-[#D4AF37] transition" />
+              <Instagram className="w-5 h-5 cursor-pointer hover:text-[#D4AF37] transition" />
+            </div>
+          </div>
+          
+          <div>
+            <h4 className="font-bold mb-6 text-[#D4AF37]">Quick Links</h4>
+            <ul className="space-y-3 text-sm text-slate-400">
+              <li><a href="#services" className="hover:text-white transition">Catering Services</a></li>
+              <li><a href="#menu" className="hover:text-white transition">Our Menu</a></li>
+              <li><a href="#about" className="hover:text-white transition">About Us</a></li>
+              <li><a href="#quote" className="hover:text-white transition">Request Quote</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold mb-6 text-[#D4AF37]">Service Areas</h4>
+            <ul className="space-y-3 text-sm text-slate-400">
+              <li>Downtown Ottawa</li>
+              <li>Kanata / Stittsville</li>
+              <li>Orléans</li>
+              <li>Barrhaven</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold mb-6 text-[#D4AF37]">Newsletter</h4>
+            <p className="text-xs text-slate-400 mb-4">Get seasonal menu updates and special event offers.</p>
+            <div className="flex">
+              <input type="text" placeholder="Email" className="bg-white/10 border-transparent px-4 py-2 rounded-l-lg outline-none w-full text-sm" />
+              <button className="bg-[#D4AF37] px-4 py-2 rounded-r-lg"><ArrowRight size={16}/></button>
+            </div>
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 text-center text-xs text-slate-500">
+          © {new Date().getFullYear()} Food Inn Catering Ottawa. All rights reserved. Designed for Premium Conversion.
+        </div>
+      </footer>
+
+      {/* --- FLOATING ACTIONS --- */}
+      <div className="fixed bottom-6 right-6 flex flex-col space-y-4 z-50">
+        <a 
+          href="tel:+16135550199" 
+          className="bg-white text-[#1A3626] w-14 h-14 rounded-full shadow-2xl flex items-center justify-center border border-slate-200 animate-pulse hover:animate-none transition"
+        >
+          <Phone />
+        </a>
+        <a 
+          href="#quote" 
+          className="bg-[#D4AF37] text-white px-6 py-3 rounded-full shadow-2xl font-bold flex items-center space-x-2 md:hidden"
+        >
+          <span>Get Quote</span>
+          <ChevronRight size={18} />
+        </a>
+      </div>
+
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes fade-in-up {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+          animation: fade-in-up 0.8s ease-out forwards;
+        }
+        .animate-fade-in {
+          animation: fade-in 0.5s ease-out forwards;
+        }
+        @keyframes fade-in {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        html {
+          scroll-behavior: smooth;
+        }
+      `}} />
+    </div>
+  );
+};
+
+export default App;
