@@ -1,0 +1,2476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Inn Catering Ottawa | Premium Event & Corporate Catering</title>
+<meta name="description" content="Ottawa's premier catering service for corporate events, weddings, and private parties. Fresh ingredients, custom menus, on-time delivery. Get a free quote today!">
+<meta name="keywords" content="catering Ottawa, event catering Ottawa, corporate catering Ottawa, wedding catering Ottawa, private party catering Ottawa">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================
+   CSS VARIABLES & RESET
+============================================ */
+:root {
+  --forest: #1a3a2a;
+  --forest-dark: #0f2218;
+  --forest-mid: #2a5040;
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --cream: #faf7f2;
+  --warm-white: #fff9f2;
+  --charcoal: #2c2c2c;
+  --muted: #6b7264;
+  --border: rgba(201,168,76,0.2);
+  --shadow-sm: 0 2px 12px rgba(15,34,24,0.08);
+  --shadow-md: 0 8px 40px rgba(15,34,24,0.14);
+  --shadow-lg: 0 20px 80px rgba(15,34,24,0.2);
+  --radius: 4px;
+  --transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--warm-white);
+  color: var(--charcoal);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+/* ============================================
+   NAVIGATION
+============================================ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 0 5vw;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(15, 34, 24, 0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--cream);
+  letter-spacing: 0.02em;
+}
+
+.nav-logo span { color: var(--gold); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: rgba(250,247,242,0.75);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+.nav-links a:hover { color: var(--gold-light); }
+
+.nav-cta {
+  background: var(--gold);
+  color: var(--forest-dark) !important;
+  padding: 0.5rem 1.25rem;
+  border-radius: 2px;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  transition: var(--transition) !important;
+}
+
+.nav-cta:hover {
+  background: var(--gold-light) !important;
+  transform: translateY(-1px);
+}
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-hamburger span {
+  width: 24px;
+  height: 2px;
+  background: var(--cream);
+  display: block;
+  transition: var(--transition);
+}
+
+/* ============================================
+   FLOATING BUTTONS
+============================================ */
+.float-btns {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 2rem;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-end;
+}
+
+.float-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-md);
+  white-space: nowrap;
+  border: none;
+  text-decoration: none;
+}
+
+.float-btn-quote {
+  background: var(--gold);
+  color: var(--forest-dark);
+}
+
+.float-btn-call {
+  background: var(--forest);
+  color: var(--cream);
+  border: 1px solid var(--gold);
+}
+
+.float-btn:hover {
+  transform: translateX(-4px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+.float-icon { font-size: 1.1rem; }
+
+/* ============================================
+   HERO SECTION
+============================================ */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--forest-dark);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 70% 50%, rgba(42,80,64,0.6) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.12) 0%, transparent 50%),
+    linear-gradient(135deg, #0f2218 0%, #1a3a2a 50%, #0d1f14 100%);
+}
+
+/* Animated food illustration elements */
+.hero-orbs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: float-orb 8s ease-in-out infinite;
+}
+
+.hero-orb-1 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
+  top: -100px; right: 10%;
+  animation-delay: 0s;
+}
+
+.hero-orb-2 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(42,80,64,0.4) 0%, transparent 70%);
+  bottom: 10%; left: 5%;
+  animation-delay: -3s;
+}
+
+@keyframes float-orb {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-30px) scale(1.05); }
+}
+
+.hero-grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 140px 5vw 80px;
+  max-width: 700px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(201,168,76,0.15);
+  border: 1px solid rgba(201,168,76,0.4);
+  color: var(--gold-light);
+  padding: 0.375rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.75rem;
+  animation: fadeInUp 0.6s ease both;
+}
+
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: pulse-dot 2s ease infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.5); }
+}
+
+.hero-h1 {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  color: var(--cream);
+  line-height: 1.08;
+  margin-bottom: 1.25rem;
+  animation: fadeInUp 0.6s 0.15s ease both;
+}
+
+.hero-h1 em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.hero-sub {
+  font-size: 1.15rem;
+  color: rgba(250,247,242,0.7);
+  line-height: 1.65;
+  margin-bottom: 2.5rem;
+  max-width: 500px;
+  animation: fadeInUp 0.6s 0.3s ease both;
+}
+
+.hero-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.6s 0.45s ease both;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--gold);
+  color: var(--forest-dark);
+  padding: 0.875rem 1.75rem;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  transition: var(--transition);
+  border: 2px solid var(--gold);
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(201,168,76,0.35);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--cream);
+  padding: 0.875rem 1.75rem;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  transition: var(--transition);
+  border: 2px solid rgba(250,247,242,0.3);
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background: rgba(250,247,242,0.08);
+  border-color: rgba(250,247,242,0.6);
+  transform: translateY(-2px);
+}
+
+.hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  animation: fadeInUp 0.6s 0.6s ease both;
+}
+
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(250,247,242,0.65);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.trust-badge svg {
+  color: var(--gold);
+  width: 16px; height: 16px;
+  flex-shrink: 0;
+}
+
+.hero-visual {
+  position: absolute;
+  right: -2%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48%;
+  max-width: 680px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px;
+  padding: 140px 3% 80px;
+  animation: fadeInRight 0.9s 0.2s ease both;
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateY(-50%) translateX(40px); }
+  to { opacity: 1; transform: translateY(-50%) translateX(0); }
+}
+
+.hero-img-card {
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-img-card:nth-child(1) { grid-row: 1 / 3; }
+
+.food-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 200px;
+}
+
+/* SVG placeholder food images */
+.food-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.fp-1 { background: linear-gradient(135deg, #2d5a3d, #1a3a2a); aspect-ratio: 3/4; }
+.fp-2 { background: linear-gradient(135deg, #3d4a2d, #2a3a1a); }
+.fp-3 { background: linear-gradient(135deg, #4a3520, #2a1a10); }
+
+.food-label {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(10,22,15,0.85));
+  padding: 1.5rem 1rem 0.75rem;
+  color: var(--cream);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================
+   SECTION COMMONS
+============================================ */
+section { padding: 6rem 5vw; }
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--gold);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.875rem;
+}
+
+.section-label::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--gold);
+}
+
+.section-h2 {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  color: var(--forest-dark);
+  margin-bottom: 1.25rem;
+  line-height: 1.1;
+}
+
+.section-lead {
+  font-size: 1.05rem;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 560px;
+}
+
+.text-center { text-align: center; }
+.text-center .section-label { justify-content: center; }
+.text-center .section-lead { margin: 0 auto; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   SERVICES SECTION
+============================================ */
+.services {
+  background: var(--cream);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+.service-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  position: relative;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.service-card-img {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+.sc-bg-corporate {
+  background: linear-gradient(135deg, #1a3a2a 0%, #2a5040 100%);
+}
+
+.sc-bg-wedding {
+  background: linear-gradient(135deg, #3a2a1a 0%, #5a4030 100%);
+}
+
+.sc-bg-private {
+  background: linear-gradient(135deg, #1a2a3a 0%, #2a3a50 100%);
+}
+
+.sc-emoji {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+}
+
+.sc-tag {
+  position: absolute;
+  top: 1rem; left: 1rem;
+  background: var(--gold);
+  color: var(--forest-dark);
+  padding: 0.25rem 0.75rem;
+  border-radius: 2px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.service-card-body {
+  padding: 1.75rem;
+}
+
+.service-card-body h3 {
+  font-size: 1.5rem;
+  color: var(--forest-dark);
+  margin-bottom: 0.75rem;
+}
+
+.service-card-body p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.service-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-feat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--charcoal);
+}
+
+.service-feat::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.btn-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--forest);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 2px;
+  transition: var(--transition);
+}
+
+.btn-card:hover {
+  color: var(--gold);
+  gap: 0.7rem;
+}
+
+/* ============================================
+   MENU HIGHLIGHTS
+============================================ */
+.menu-section {
+  background: var(--warm-white);
+}
+
+.menu-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 2.5rem 0;
+}
+
+.tab-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: 'DM Sans', sans-serif;
+}
+
+.tab-btn.active, .tab-btn:hover {
+  background: var(--forest);
+  color: var(--cream);
+  border-color: var(--forest);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.menu-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.menu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.menu-card-img {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  position: relative;
+}
+
+.mc-1 { background: linear-gradient(135deg, #2d4a30, #1a2d1c); }
+.mc-2 { background: linear-gradient(135deg, #4a3020, #2d1c10); }
+.mc-3 { background: linear-gradient(135deg, #3a3020, #221c10); }
+.mc-4 { background: linear-gradient(135deg, #2a3a4a, #1a2230); }
+
+.menu-card-body {
+  padding: 1.25rem;
+}
+
+.menu-card-body h4 {
+  font-size: 1.15rem;
+  color: var(--forest-dark);
+  margin-bottom: 0.375rem;
+}
+
+.menu-card-body p {
+  font-size: 0.825rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.menu-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.serving-info {
+  font-size: 0.775rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.menu-price {
+  font-size: 0.8rem;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.menu-cta-row {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* ============================================
+   WHY CHOOSE US
+============================================ */
+.why-us {
+  background: var(--forest-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.why-us::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(42,80,64,0.5) 0%, transparent 50%);
+}
+
+.why-us .section-h2 { color: var(--cream); }
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 3.5rem;
+  position: relative;
+}
+
+.why-card {
+  padding: 2rem 1.75rem;
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.03);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.why-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: var(--transition);
+}
+
+.why-card:hover::before { transform: scaleX(1); }
+.why-card:hover { background: rgba(255,255,255,0.06); transform: translateY(-4px); }
+
+.why-icon {
+  width: 48px; height: 48px;
+  background: rgba(201,168,76,0.12);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+
+.why-card h3 {
+  font-size: 1.25rem;
+  color: var(--cream);
+  margin-bottom: 0.625rem;
+}
+
+.why-card p {
+  font-size: 0.875rem;
+  color: rgba(250,247,242,0.6);
+  line-height: 1.65;
+}
+
+/* ============================================
+   TESTIMONIALS
+============================================ */
+.testimonials { background: var(--cream); }
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.75rem;
+  margin-top: 3.5rem;
+}
+
+.testimonial-card {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  transition: var(--transition);
+}
+
+.testimonial-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem;
+  color: var(--gold);
+  opacity: 0.3;
+  line-height: 1;
+  position: absolute;
+  top: 1rem; right: 1.5rem;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 1rem;
+  color: var(--gold);
+  font-size: 0.9rem;
+}
+
+.testimonial-card p {
+  color: var(--charcoal);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.reviewer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.reviewer-avatar {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.av-1 { background: linear-gradient(135deg, #2a5040, #1a3a2a); }
+.av-2 { background: linear-gradient(135deg, #5a3a20, #3a2010); }
+.av-3 { background: linear-gradient(135deg, #2a3a5a, #1a2a40); }
+
+.reviewer-info strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--forest-dark);
+  margin-bottom: 0.1rem;
+}
+
+.reviewer-info span {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ============================================
+   HOW IT WORKS
+============================================ */
+.how-it-works { background: var(--warm-white); }
+
+.steps-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0;
+  margin-top: 3.5rem;
+  position: relative;
+}
+
+.steps-row::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.step-item {
+  text-align: center;
+  padding: 0 1.5rem 2rem;
+  position: relative;
+}
+
+.step-num {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 0 8px var(--warm-white);
+}
+
+.step-num-inner {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--forest-dark);
+}
+
+.step-emoji {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.step-item h3 {
+  font-size: 1.25rem;
+  color: var(--forest-dark);
+  margin-bottom: 0.625rem;
+}
+
+.step-item p {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* ============================================
+   GALLERY
+============================================ */
+.gallery { background: var(--forest-dark); padding-bottom: 0; }
+.gallery .section-h2 { color: var(--cream); }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 280px 280px;
+  gap: 8px;
+  margin-top: 3rem;
+}
+
+.gallery-item {
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.gallery-item:hover { opacity: 0.85; transform: scale(0.99); }
+
+.gallery-item:nth-child(1) { grid-row: 1 / 3; }
+
+.g-bg-1 { background: linear-gradient(160deg, #2a4a35, #1a3025); }
+.g-bg-2 { background: linear-gradient(160deg, #3a2a1a, #281810); }
+.g-bg-3 { background: linear-gradient(160deg, #2a352a, #1a2018); }
+.g-bg-4 { background: linear-gradient(160deg, #3a3520, #262210); }
+.g-bg-5 { background: linear-gradient(160deg, #2a2a3a, #181820); }
+
+.gallery-emoji {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3.5rem;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+}
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(5,15,8,0.8));
+  padding: 2rem 1rem 0.875rem;
+  color: rgba(250,247,242,0.85);
+  font-size: 0.825rem;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================
+   FINAL CTA BANNER
+============================================ */
+.cta-banner {
+  background: linear-gradient(135deg, var(--gold) 0%, #b8922a 100%);
+  text-align: center;
+  padding: 5rem 5vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.cta-banner > * { position: relative; z-index: 1; }
+
+.cta-urgency {
+  display: inline-block;
+  background: rgba(15,34,24,0.2);
+  color: var(--forest-dark);
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.cta-banner h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--forest-dark);
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.cta-banner p {
+  color: rgba(15,34,24,0.75);
+  font-size: 1.05rem;
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-banner-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn-dark {
+  background: var(--forest-dark);
+  color: var(--cream);
+  padding: 0.875rem 2rem;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  transition: var(--transition);
+  border: 2px solid var(--forest-dark);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-dark:hover {
+  background: var(--forest);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(15,34,24,0.3);
+}
+
+.btn-white-outline {
+  background: transparent;
+  color: var(--forest-dark);
+  padding: 0.875rem 2rem;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  transition: var(--transition);
+  border: 2px solid var(--forest-dark);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-white-outline:hover {
+  background: rgba(15,34,24,0.1);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   STATS STRIP
+============================================ */
+.stats-strip {
+  background: var(--forest);
+  padding: 3rem 5vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+.stat-item {}
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.375rem;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: rgba(250,247,242,0.65);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ============================================
+   CONTACT / QUOTE FORM
+============================================ */
+.contact-section {
+  background: var(--cream);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 5rem;
+  margin-top: 3.5rem;
+  align-items: start;
+}
+
+.contact-info h3 {
+  font-size: 1.75rem;
+  color: var(--forest-dark);
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.contact-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  margin-bottom: 1.25rem;
+}
+
+.contact-icon {
+  width: 40px; height: 40px;
+  background: var(--forest);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.contact-detail-text strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--forest-dark);
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.contact-detail-text span, .contact-detail-text a {
+  font-size: 0.9rem;
+  color: var(--muted);
+  transition: var(--transition);
+}
+
+.contact-detail-text a:hover { color: var(--forest); }
+
+.call-cta-block {
+  background: var(--forest-dark);
+  border-radius: 8px;
+  padding: 1.75rem;
+  margin-top: 2rem;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+
+.call-cta-block p {
+  color: rgba(250,247,242,0.7);
+  margin-bottom: 1rem;
+}
+
+.btn-call {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--gold);
+  color: var(--forest-dark);
+  padding: 0.875rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  justify-content: center;
+  letter-spacing: 0.02em;
+}
+
+.btn-call:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(201,168,76,0.3);
+}
+
+/* Quote Form */
+.quote-form {
+  background: white;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.form-header {
+  margin-bottom: 2rem;
+}
+
+.form-header h3 {
+  font-size: 1.75rem;
+  color: var(--forest-dark);
+  margin-bottom: 0.375rem;
+}
+
+.form-header p {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--forest-dark);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #e5e5e5;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--charcoal);
+  background: #fafaf9;
+  transition: var(--transition);
+  outline: none;
+  appearance: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--forest);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(26,58,42,0.08);
+}
+
+.form-group textarea { resize: vertical; min-height: 100px; }
+
+.btn-submit {
+  width: 100%;
+  padding: 1rem;
+  background: var(--forest);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.btn-submit:hover {
+  background: var(--forest-mid);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(26,58,42,0.25);
+}
+
+.form-note {
+  text-align: center;
+  font-size: 0.775rem;
+  color: var(--muted);
+  margin-top: 1rem;
+}
+
+/* ============================================
+   MAP EMBED PLACEHOLDER
+============================================ */
+.map-section { background: var(--warm-white); padding: 0; }
+
+.map-placeholder {
+  height: 300px;
+  background: linear-gradient(135deg, #1a3a2a, #2a5040);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-overlay {
+  text-align: center;
+  color: var(--cream);
+}
+
+.map-overlay p {
+  opacity: 0.7;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.map-pin-emoji { font-size: 3rem; margin-bottom: 0.5rem; }
+
+/* ============================================
+   ABOUT STRIP
+============================================ */
+.about-strip {
+  background: var(--warm-white);
+  padding: 5rem 5vw;
+}
+
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.about-visual {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.about-img-main {
+  height: 420px;
+  background: linear-gradient(160deg, #1a3a2a, #2a5040);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+  border-radius: 12px;
+}
+
+.about-badge-float {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  background: white;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.about-badge-icon { font-size: 1.5rem; }
+.about-badge-text strong { display: block; font-size: 1.1rem; color: var(--forest-dark); }
+.about-badge-text span { font-size: 0.8rem; color: var(--muted); }
+
+.about-content .section-h2 { margin-bottom: 1.25rem; }
+
+.about-content p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.about-values {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.about-val {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.val-dot {
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.val-text {
+  font-size: 0.875rem;
+  color: var(--charcoal);
+  font-weight: 500;
+}
+
+/* ============================================
+   FOOTER
+============================================ */
+footer {
+  background: var(--forest-dark);
+  padding: 4rem 5vw 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+
+.footer-brand .nav-logo {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.footer-brand p {
+  color: rgba(250,247,242,0.55);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.social-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.social-btn {
+  width: 38px; height: 38px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(201,168,76,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.social-btn:hover {
+  background: rgba(201,168,76,0.15);
+  border-color: rgba(201,168,76,0.4);
+}
+
+.footer-col h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.footer-col ul li a {
+  color: rgba(250,247,242,0.55);
+  font-size: 0.875rem;
+  transition: var(--transition);
+}
+
+.footer-col ul li a:hover { color: var(--cream); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-copy {
+  color: rgba(250,247,242,0.35);
+  font-size: 0.8rem;
+}
+
+.footer-schema {
+  color: rgba(250,247,242,0.25);
+  font-size: 0.75rem;
+}
+
+/* ============================================
+   MODAL
+============================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,20,12,0.75);
+  backdrop-filter: blur(6px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+  padding: 1rem;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2.5rem;
+  position: relative;
+  transform: translateY(20px) scale(0.97);
+  transition: var(--transition);
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-overlay.open .modal {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  width: 36px; height: 36px;
+  background: var(--cream);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  border: none;
+  transition: var(--transition);
+  color: var(--charcoal);
+}
+
+.modal-close:hover { background: #eee; }
+
+/* ============================================
+   SUCCESS MESSAGE
+============================================ */
+.success-msg {
+  display: none;
+  text-align: center;
+  padding: 2rem;
+}
+
+.success-msg.show { display: block; }
+.success-icon { font-size: 3rem; margin-bottom: 1rem; }
+.success-msg h3 { font-size: 1.75rem; color: var(--forest); margin-bottom: 0.5rem; }
+.success-msg p { color: var(--muted); }
+
+/* ============================================
+   MOBILE NAV OVERLAY
+============================================ */
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  background: var(--forest-dark);
+  z-index: 1500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+}
+
+.mobile-nav.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-nav a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  color: var(--cream);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.mobile-nav a:hover { color: var(--gold); }
+
+.mobile-nav-close {
+  position: absolute;
+  top: 1.5rem; right: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--cream);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+@media (max-width: 1024px) {
+  .hero-visual { display: none; }
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .gallery-item:nth-child(1) { grid-row: auto; grid-column: 1 / 3; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  section { padding: 4rem 5vw; }
+  .hero-content { padding-top: 110px; }
+  .form-row { grid-template-columns: 1fr; }
+  .steps-row::before { display: none; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item:nth-child(1) { grid-column: auto; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .float-btns { right: 1rem; bottom: 1.5rem; }
+  .float-btn span { display: none; }
+  .float-btn { padding: 0.75rem; }
+  .float-icon { font-size: 1.4rem; }
+  .about-values { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .hero-btns { flex-direction: column; }
+  .cta-banner-btns { flex-direction: column; align-items: center; }
+}
+
+/* ============================================
+   SCROLL ANIMATIONS
+============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ============================================
+   URGENCY BAR
+============================================ */
+.urgency-bar {
+  background: linear-gradient(90deg, var(--forest), var(--forest-mid), var(--forest));
+  color: var(--gold-light);
+  text-align: center;
+  padding: 0.625rem 2rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  position: fixed;
+  top: 70px;
+  left: 0; right: 0;
+  z-index: 900;
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+
+.urgency-bar span { color: var(--gold); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<!-- ============ URGENCY BAR ============ -->
+<div class="urgency-bar">
+  🗓️ <span>Limited availability</span> for summer events — Book early to secure your date &nbsp;·&nbsp; Call us: <span>(613) 555-0142</span>
+</div>
+
+<!-- ============ NAVIGATION ============ -->
+<nav class="nav" id="navbar">
+  <a href="#home" class="nav-logo">Food<span>Inn</span> Catering</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="toggleMobileNav()">✕</button>
+  <a href="#home" onclick="toggleMobileNav()">Home</a>
+  <a href="#services" onclick="toggleMobileNav()">Services</a>
+  <a href="#menu" onclick="toggleMobileNav()">Menu</a>
+  <a href="#about" onclick="toggleMobileNav()">About</a>
+  <a href="#testimonials" onclick="toggleMobileNav()">Reviews</a>
+  <a href="#contact" onclick="toggleMobileNav()">Get a Quote</a>
+  <a href="tel:6135550142" style="color:var(--gold);">📞 (613) 555-0142</a>
+</div>
+
+<!-- ============ FLOATING BUTTONS ============ -->
+<div class="float-btns">
+  <a href="#contact" class="float-btn float-btn-quote">
+    <span class="float-icon">📋</span>
+    <span>Get a Quote</span>
+  </a>
+  <a href="tel:6135550142" class="float-btn float-btn-call">
+    <span class="float-icon">📞</span>
+    <span>Call Now</span>
+  </a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-orbs">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+  </div>
+  <div class="hero-grid-pattern"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">Ottawa's #1 Rated Caterer</div>
+    <h1 class="hero-h1">
+      Premium Catering<br>
+      in Ottawa for<br>
+      <em>Every Occasion</em>
+    </h1>
+    <p class="hero-sub">
+      Fresh, flavorful, and professionally served. From intimate gatherings to grand corporate events — we bring culinary excellence to your table.
+    </p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">📋 Get a Free Quote</a>
+      <a href="tel:6135550142" class="btn-outline">📞 Call Now: (613) 555-0142</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7l-9-5z"/></svg>
+        On-Time Delivery
+      </div>
+      <div class="trust-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a5 5 0 100 10A5 5 0 0012 2zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/></svg>
+        Fresh Ingredients
+      </div>
+      <div class="trust-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-7 3a4 4 0 110 8 4 4 0 010-8zm0 10c2.67 0 8 1.34 8 4v1H4v-1c0-2.66 5.33-4 8-4z"/></svg>
+        Custom Menus
+      </div>
+      <div class="trust-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        10+ Years Experience
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Visual Cards -->
+  <div class="hero-visual">
+    <div class="hero-img-card">
+      <div class="food-placeholder fp-1">🍽️</div>
+      <div class="food-label">Corporate Luncheon Setup</div>
+    </div>
+    <div class="hero-img-card">
+      <div class="food-placeholder fp-2">🥗</div>
+      <div class="food-label">Fresh Platters</div>
+    </div>
+    <div class="hero-img-card">
+      <div class="food-placeholder fp-3">🍰</div>
+      <div class="food-label">Wedding Desserts</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS STRIP ============ -->
+<div class="stats-strip">
+  <div class="stat-item reveal">
+    <div class="stat-num">500+</div>
+    <div class="stat-label">Events Catered</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-1">
+    <div class="stat-num">10+</div>
+    <div class="stat-label">Years in Ottawa</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-2">
+    <div class="stat-num">98%</div>
+    <div class="stat-label">Client Satisfaction</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-3">
+    <div class="stat-num">50+</div>
+    <div class="stat-label">Menu Items</div>
+  </div>
+</div>
+
+<!-- ============ SERVICES ============ -->
+<section class="services" id="services">
+  <div class="section-label">What We Offer</div>
+  <h2 class="section-h2">Catering for<br>Every Occasion</h2>
+  <p class="section-lead">Whether it's a boardroom lunch or a milestone celebration, we deliver an unforgettable culinary experience tailored to your event.</p>
+
+  <div class="services-grid">
+    <!-- Corporate -->
+    <div class="service-card reveal">
+      <div class="service-card-img sc-bg-corporate">
+        <div class="sc-emoji">🏢</div>
+        <div class="sc-tag">Popular</div>
+      </div>
+      <div class="service-card-body">
+        <h3>Corporate Catering</h3>
+        <p>Impress clients and energize your team with our professional corporate catering. From working lunches to multi-day conferences.</p>
+        <ul class="service-features">
+          <li class="service-feat">Office lunches & team meetings</li>
+          <li class="service-feat">Conferences & seminars</li>
+          <li class="service-feat">Client appreciation events</li>
+          <li class="service-feat">Holiday parties & galas</li>
+          <li class="service-feat">Punctual setup & teardown</li>
+        </ul>
+        <a href="#contact" class="btn-card">Request Quote →</a>
+      </div>
+    </div>
+
+    <!-- Wedding -->
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-card-img sc-bg-wedding">
+        <div class="sc-emoji">💍</div>
+      </div>
+      <div class="service-card-body">
+        <h3>Wedding Catering</h3>
+        <p>Your special day deserves extraordinary food. We craft bespoke menus that reflect your vision, taste, and love story.</p>
+        <ul class="service-features">
+          <li class="service-feat">Personalized menu consultation</li>
+          <li class="service-feat">Elegant plated service</li>
+          <li class="service-feat">Cocktail hour & canapés</li>
+          <li class="service-feat">Wedding cake & dessert bar</li>
+          <li class="service-feat">Full venue setup & staff</li>
+        </ul>
+        <a href="#contact" class="btn-card">Request Quote →</a>
+      </div>
+    </div>
+
+    <!-- Private Events -->
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-card-img sc-bg-private">
+        <div class="sc-emoji">🎉</div>
+      </div>
+      <div class="service-card-body">
+        <h3>Private Events</h3>
+        <p>Birthdays, anniversaries, graduations, or just a great dinner party — we bring the restaurant experience to your home or venue.</p>
+        <ul class="service-features">
+          <li class="service-feat">Birthday & anniversary parties</li>
+          <li class="service-feat">Graduation celebrations</li>
+          <li class="service-feat">Backyard BBQs & picnics</li>
+          <li class="service-feat">Holiday family dinners</li>
+          <li class="service-feat">Flexible serving styles</li>
+        </ul>
+        <a href="#contact" class="btn-card">Request Quote →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MENU HIGHLIGHTS ============ -->
+<section class="menu-section" id="menu">
+  <div class="text-center">
+    <div class="section-label">Our Menu</div>
+    <h2 class="section-h2">Featured Menu Highlights</h2>
+    <p class="section-lead">Crafted with locally-sourced, seasonal ingredients. Every dish designed for catering scale without sacrificing quality.</p>
+  </div>
+
+  <div class="menu-tabs" id="menuTabs">
+    <button class="tab-btn active" onclick="filterMenu('all', this)">All</button>
+    <button class="tab-btn" onclick="filterMenu('appetizer', this)">Appetizers</button>
+    <button class="tab-btn" onclick="filterMenu('main', this)">Main Dishes</button>
+    <button class="tab-btn" onclick="filterMenu('platter', this)">Platters</button>
+    <button class="tab-btn" onclick="filterMenu('dessert', this)">Desserts</button>
+    <button class="tab-btn" onclick="filterMenu('drink', this)">Beverages</button>
+  </div>
+
+  <div class="menu-grid" id="menuGrid">
+    <!-- Items injected by JS -->
+  </div>
+
+  <div class="menu-cta-row">
+    <a href="#contact" class="btn-primary" style="display:inline-flex;">📄 Request Full Menu & Pricing</a>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE US ============ -->
+<section class="why-us">
+  <div class="text-center" style="position:relative;z-index:1;">
+    <div class="section-label" style="color:var(--gold-light);">Why Food Inn</div>
+    <h2 class="section-h2" style="color:var(--cream);">Quality You Can Taste.<br>Service You Can Trust.</h2>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-icon">🌿</div>
+      <h3>Fresh Local Ingredients</h3>
+      <p>We source from Ottawa-area farms and suppliers. Every dish starts with premium, seasonal ingredients prepared fresh for your event.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-1">
+      <div class="why-icon">⏱️</div>
+      <h3>Always On Time</h3>
+      <p>Punctuality is non-negotiable. We arrive early, set up professionally, and are ready the moment your guests are.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-2">
+      <div class="why-icon">🎨</div>
+      <h3>Custom Menu Design</h3>
+      <p>Every menu is crafted to your taste, dietary needs, and event style. No templates — just food that tells your story.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-3">
+      <div class="why-icon">👨‍🍳</div>
+      <h3>Experienced Team</h3>
+      <p>Our chefs and service staff bring over a decade of Ottawa catering experience to every event, large or small.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-1">
+      <div class="why-icon">🏆</div>
+      <h3>Award-Winning Presentation</h3>
+      <p>Beautiful food presentations that photograph and taste equally amazing. We elevate every detail of the dining experience.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-2">
+      <div class="why-icon">💬</div>
+      <h3>Dedicated Event Support</h3>
+      <p>A personal event coordinator handles every detail from first inquiry to final cleanup so you can enjoy your event stress-free.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testimonials" id="testimonials">
+  <div class="text-center">
+    <div class="section-label">Client Reviews</div>
+    <h2 class="section-h2">What Our Clients Say</h2>
+    <p class="section-lead">Over 500 events and counting. Here's what Ottawa is saying about Food Inn Catering.</p>
+  </div>
+
+  <div class="testimonials-grid" style="margin-top:3.5rem;">
+    <div class="testimonial-card reveal">
+      <div class="quote-mark">"</div>
+      <div class="stars">★★★★★</div>
+      <p>Food Inn catered our company's annual gala for 200 guests. The food was absolutely stunning — every single dish was fresh, beautifully presented, and delicious. Their team was seamless and professional throughout the evening.</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar av-1">SR</div>
+        <div class="reviewer-info">
+          <strong>Sarah R.</strong>
+          <span>Corporate Events Manager · Tech Company</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card reveal reveal-delay-1">
+      <div class="quote-mark">"</div>
+      <div class="stars">★★★★★</div>
+      <p>We hired Food Inn for our wedding reception and it was beyond perfect. The custom menu they designed for us reflected everything we love, and our guests are still talking about the food months later. Truly exceptional.</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar av-2">MP</div>
+        <div class="reviewer-info">
+          <strong>Marc & Patricia L.</strong>
+          <span>Wedding Reception · June 2024</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card reveal reveal-delay-2">
+      <div class="quote-mark">"</div>
+      <div class="stars">★★★★★</div>
+      <p>Absolutely fantastic service for my mother's 70th birthday party. They handled everything — setup, service, cleanup. The buffet spread was gorgeous and tasted even better. Will use them again for every family event.</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar av-3">JT</div>
+        <div class="reviewer-info">
+          <strong>Jennifer T.</strong>
+          <span>Private Birthday Party · Ottawa</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how-it-works">
+  <div class="text-center">
+    <div class="section-label">Simple Process</div>
+    <h2 class="section-h2">3 Easy Steps to<br>a Perfect Event</h2>
+    <p class="section-lead">Getting started is simple. We handle everything so you can focus on enjoying your event.</p>
+  </div>
+
+  <div class="steps-row" style="margin-top:4rem;">
+    <div class="step-item reveal">
+      <div class="step-num">
+        <div class="step-num-inner">01</div>
+      </div>
+      <div class="step-emoji">🍽️</div>
+      <h3>Choose Your Menu</h3>
+      <p>Browse our menu options or work with our team to design a completely custom menu tailored to your event and guests.</p>
+    </div>
+    <div class="step-item reveal reveal-delay-1">
+      <div class="step-num">
+        <div class="step-num-inner">02</div>
+      </div>
+      <div class="step-emoji">📋</div>
+      <h3>Request a Quote</h3>
+      <p>Fill out our simple quote form or call us. We'll get back to you within 24 hours with a personalized proposal and pricing.</p>
+    </div>
+    <div class="step-item reveal reveal-delay-2">
+      <div class="step-num">
+        <div class="step-num-inner">03</div>
+      </div>
+      <div class="step-emoji">🎉</div>
+      <h3>Enjoy Your Event</h3>
+      <p>We handle delivery, full setup, professional service, and cleanup. You relax and enjoy the moment with your guests.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery" id="gallery">
+  <div class="section-label" style="color:var(--gold-light);">Event Gallery</div>
+  <h2 class="section-h2">See Our Work in Action</h2>
+  <p class="section-lead" style="color:rgba(250,247,242,0.6);">Real events, real setups, real Ottawa moments.</p>
+
+  <div class="gallery-grid">
+    <div class="gallery-item g-bg-1">
+      <div class="gallery-emoji">🍽️</div>
+      <div class="gallery-caption">Corporate Gala — 200 Guests</div>
+    </div>
+    <div class="gallery-item g-bg-2">
+      <div class="gallery-emoji">💍</div>
+      <div class="gallery-caption">Wedding Reception</div>
+    </div>
+    <div class="gallery-item g-bg-3">
+      <div class="gallery-emoji">🥗</div>
+      <div class="gallery-caption">Buffet Spread</div>
+    </div>
+    <div class="gallery-item g-bg-4">
+      <div class="gallery-emoji">🎂</div>
+      <div class="gallery-caption">Dessert Station</div>
+    </div>
+    <div class="gallery-item g-bg-5">
+      <div class="gallery-emoji">🥂</div>
+      <div class="gallery-caption">Cocktail Hour Setup</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about-strip" id="about">
+  <div class="about-inner">
+    <div class="about-visual reveal">
+      <div class="about-img-main">👨‍🍳</div>
+      <div class="about-badge-float">
+        <div class="about-badge-icon">🏅</div>
+        <div class="about-badge-text">
+          <strong>Ottawa's Trusted Caterer</strong>
+          <span>Since 2014</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-content reveal reveal-delay-1">
+      <div class="section-label">Our Story</div>
+      <h2 class="section-h2">Rooted in Ottawa.<br>Passionate About Food.</h2>
+      <p>Food Inn Catering was born from a simple belief: that great food has the power to bring people together and make any moment memorable. Founded in the heart of Ottawa, we've grown from a small family operation into one of the city's most trusted catering services.</p>
+      <p>Every dish we prepare reflects our commitment to using the freshest local ingredients, honoring culinary tradition while embracing modern flavors. We're not just caterers — we're storytellers through food, and your event is our canvas.</p>
+      <div class="about-values">
+        <div class="about-val"><div class="val-dot"></div><span class="val-text">Locally-sourced ingredients</span></div>
+        <div class="about-val"><div class="val-dot"></div><span class="val-text">Fully insured & certified</span></div>
+        <div class="about-val"><div class="val-dot"></div><span class="val-text">Custom dietary accommodations</span></div>
+        <div class="about-val"><div class="val-dot"></div><span class="val-text">Professional service staff</span></div>
+        <div class="about-val"><div class="val-dot"></div><span class="val-text">Full setup & teardown</span></div>
+        <div class="about-val"><div class="val-dot"></div><span class="val-text">Transparent pricing</span></div>
+      </div>
+      <a href="#contact" class="btn-primary" style="display:inline-flex;">Start Planning Your Event</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA BANNER ============ -->
+<div class="cta-banner">
+  <div class="cta-urgency">⚡ Limited Summer Availability</div>
+  <h2>Plan Your Event Today</h2>
+  <p>Don't leave your event to chance. Get a free custom quote within 24 hours and secure your date before it's gone.</p>
+  <div class="cta-banner-btns">
+    <a href="#contact" class="btn-dark">📋 Get a Free Quote</a>
+    <a href="tel:6135550142" class="btn-white-outline">📞 Call (613) 555-0142</a>
+  </div>
+</div>
+
+<!-- ============ CONTACT / QUOTE ============ -->
+<section class="contact-section" id="contact">
+  <div class="section-label">Get In Touch</div>
+  <h2 class="section-h2">Request a Free Quote</h2>
+  <p class="section-lead">Tell us about your event. We'll respond within 24 hours with a personalized proposal — no obligation.</p>
+
+  <div class="contact-grid">
+    <!-- Contact Info -->
+    <div class="contact-info reveal">
+      <h3>Let's Talk About<br>Your Event</h3>
+      <p>We'd love to learn more about your vision. Reach out via the form, give us a call, or visit us in Ottawa.</p>
+
+      <div class="contact-detail">
+        <div class="contact-icon">📞</div>
+        <div class="contact-detail-text">
+          <strong>Phone</strong>
+          <a href="tel:6135550142">(613) 555-0142</a>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-detail-text">
+          <strong>Email</strong>
+          <a href="mailto:hello@foodinncatering.ca">hello@foodinncatering.ca</a>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-icon">📍</div>
+        <div class="contact-detail-text">
+          <strong>Location</strong>
+          <span>Ottawa, Ontario, Canada</span>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-icon">🕐</div>
+        <div class="contact-detail-text">
+          <strong>Hours</strong>
+          <span>Mon–Sat: 8AM–8PM · Sun: 10AM–5PM</span>
+        </div>
+      </div>
+
+      <div class="call-cta-block">
+        <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--cream);margin-bottom:0.5rem;">Prefer to Talk?</h4>
+        <p>Speak directly with our event coordinator for a fast, personalized consultation.</p>
+        <a href="tel:6135550142" class="btn-call">📞 (613) 555-0142 — Call Now</a>
+      </div>
+    </div>
+
+    <!-- Quote Form -->
+    <div class="quote-form reveal reveal-delay-1" id="quoteFormWrap">
+      <div class="form-header">
+        <h3>Event Quote Request</h3>
+        <p>We'll get back to you within 24 hours</p>
+      </div>
+
+      <div id="formBody">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name *</label>
+            <input type="text" id="fname" placeholder="First & last name" required>
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" id="fphone" placeholder="(613) 000-0000" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" id="femail" placeholder="you@email.com" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Event Type *</label>
+            <select id="fevent">
+              <option value="">Select event type</option>
+              <option>Corporate Event / Meeting</option>
+              <option>Wedding</option>
+              <option>Birthday Party</option>
+              <option>Anniversary / Celebration</option>
+              <option>Graduation Party</option>
+              <option>Holiday Party</option>
+              <option>Conference / Seminar</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Number of Guests *</label>
+            <select id="fguests">
+              <option value="">Select range</option>
+              <option>Under 25</option>
+              <option>25 – 50</option>
+              <option>50 – 100</option>
+              <option>100 – 200</option>
+              <option>200 – 500</option>
+              <option>500+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Event Date *</label>
+          <input type="date" id="fdate">
+        </div>
+
+        <div class="form-group">
+          <label>Tell Us About Your Event</label>
+          <textarea id="fmessage" placeholder="Tell us about your venue, dietary requirements, preferred cuisine style, or any special requests..."></textarea>
+        </div>
+
+        <button class="btn-submit" onclick="submitForm()">
+          📋 Send My Quote Request →
+        </button>
+        <p class="form-note">🔒 Your information is private and never shared. We respond within 24 hours.</p>
+      </div>
+
+      <div class="success-msg" id="successMsg">
+        <div class="success-icon">🎉</div>
+        <h3>Quote Request Received!</h3>
+        <p>Thank you! Our team will review your event details and reach out within 24 hours with a personalized proposal.</p>
+        <br>
+        <p style="font-size:0.875rem;color:var(--muted);">Need a faster response? Call us directly at <a href="tel:6135550142" style="color:var(--forest);font-weight:600;">(613) 555-0142</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAP ============ -->
+<div class="map-section">
+  <div class="map-placeholder">
+    <div class="map-overlay">
+      <div class="map-pin-emoji">📍</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--cream);">Serving All of Ottawa & Surrounding Areas</h3>
+      <p>Gatineau · Kanata · Orleans · Nepean · Barrhaven · Stittsville</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#home" class="nav-logo">Food<span>Inn</span> Catering</a>
+      <p>Ottawa's trusted catering partner for corporate events, weddings, and private celebrations. Fresh ingredients, custom menus, professional service — every time.</p>
+      <div class="social-row">
+        <div class="social-btn">📘</div>
+        <div class="social-btn">📸</div>
+        <div class="social-btn">🐦</div>
+        <div class="social-btn">▶️</div>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Corporate Catering</a></li>
+        <li><a href="#services">Wedding Catering</a></li>
+        <li><a href="#services">Private Events</a></li>
+        <li><a href="#services">Holiday Parties</a></li>
+        <li><a href="#services">Conference Catering</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#menu">View Menu</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact">Get a Quote</a></li>
+        <li><a href="tel:6135550142">Call Now</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:6135550142">📞 (613) 555-0142</a></li>
+        <li><a href="mailto:hello@foodinncatering.ca">✉️ hello@foodinncatering.ca</a></li>
+        <li><a href="#contact">📍 Ottawa, Ontario</a></li>
+        <li><a href="#contact">🕐 Mon–Sat: 8AM–8PM</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Food Inn Catering Ottawa. All rights reserved.</p>
+    <p class="footer-schema">Catering Ottawa · Event Catering Ottawa · Corporate Catering Ottawa · Wedding Catering Ottawa</p>
+  </div>
+</footer>
+
+<!-- ============ JAVASCRIPT ============ -->
+<script>
+/* ---- Menu Data ---- */
+const menuItems = [
+  { cat: 'appetizer', emoji: '🥗', bg: 'mc-1', name: 'Caprese Skewers', desc: 'Fresh bocconcini, heirloom tomatoes, basil & aged balsamic drizzle', serving: 'Serves 10–15 per tray', price: 'From $45/tray' },
+  { cat: 'appetizer', emoji: '🦐', bg: 'mc-2', name: 'Chilled Shrimp Cocktail', desc: 'Jumbo tiger shrimp, house cocktail sauce, lemon wedges', serving: 'Serves 20–25 per platter', price: 'From $85/platter' },
+  { cat: 'appetizer', emoji: '🧀', bg: 'mc-3', name: 'Artisan Cheese Board', desc: 'Local & imported cheeses, honeycomb, seasonal fruit, crackers', serving: 'Serves 15–20 per board', price: 'From $75/board' },
+  { cat: 'main', emoji: '🍗', bg: 'mc-1', name: 'Roasted Herb Chicken', desc: 'Free-range chicken, rosemary-garlic jus, roasted root vegetables', serving: 'Serves 8–10 per pan', price: 'From $110/pan' },
+  { cat: 'main', emoji: '🥩', bg: 'mc-2', name: 'Beef Tenderloin Station', desc: 'AAA Ontario beef, mushroom demi-glace, carved to order', serving: 'Serves 20–25 per roast', price: 'From $240/roast' },
+  { cat: 'main', emoji: '🐟', bg: 'mc-3', name: 'Cedar Plank Salmon', desc: 'Atlantic salmon, lemon-dill cream, capers & microgreens', serving: 'Serves 6–8 per plank', price: 'From $95/plank' },
+  { cat: 'main', emoji: '🌿', bg: 'mc-4', name: 'Harvest Vegetable Lasagna', desc: 'Seasonal roasted vegetables, béchamel, San Marzano tomato, aged parmesan', serving: 'Serves 10–12 per tray', price: 'From $80/tray' },
+  { cat: 'platter', emoji: '🥩', bg: 'mc-2', name: 'Charcuterie Grand Board', desc: 'Cured meats, artisan cheeses, cornichons, mustards, breads & seasonal accompaniments', serving: 'Serves 25–30 per board', price: 'From $150/board' },
+  { cat: 'platter', emoji: '🥪', bg: 'mc-3', name: 'Sandwich & Wrap Platter', desc: 'Assorted premium sandwiches & wraps, mixed greens, seasonal fillings', serving: 'Serves 12–16 per platter', price: 'From $90/platter' },
+  { cat: 'dessert', emoji: '🍰', bg: 'mc-4', name: 'Petit Four Selection', desc: 'Mini cakes, macarons, chocolate truffles & seasonal tarts', serving: 'Serves 20–25 per box', price: 'From $65/box' },
+  { cat: 'dessert', emoji: '🍫', bg: 'mc-1', name: 'Chocolate Fondue Station', desc: 'Dark & white Belgian chocolate, seasonal fruits, marshmallows, biscotti', serving: 'Serves 20–30 guests', price: 'From $180/station' },
+  { cat: 'drink', emoji: '🍹', bg: 'mc-2', name: 'Signature Mocktail Bar', desc: 'Seasonal house mocktails, infused waters, fresh-squeezed juices', serving: 'Per guest / per hour', price: 'From $8/person' },
+];
+
+function renderMenu(filter) {
+  const grid = document.getElementById('menuGrid');
+  const items = filter === 'all' ? menuItems : menuItems.filter(m => m.cat === filter);
+  grid.innerHTML = items.map(item => `
+    <div class="menu-card">
+      <div class="menu-card-img ${item.bg}">
+        <span style="font-size:2.5rem;">${item.emoji}</span>
+      </div>
+      <div class="menu-card-body">
+        <h4>${item.name}</h4>
+        <p>${item.desc}</p>
+        <div class="menu-card-footer">
+          <span class="serving-info">👥 ${item.serving}</span>
+          <span class="menu-price">${item.price}</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterMenu(cat, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderMenu(cat);
+}
+
+renderMenu('all');
+
+/* ---- Form Submission ---- */
+function submitForm() {
+  const name = document.getElementById('fname').value;
+  const phone = document.getElementById('fphone').value;
+  const email = document.getElementById('femail').value;
+  const event = document.getElementById('fevent').value;
+  const guests = document.getElementById('fguests').value;
+
+  if (!name || !phone || !email || !event || !guests) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+
+  document.getElementById('formBody').style.display = 'none';
+  document.getElementById('successMsg').classList.add('show');
+}
+
+/* ---- Mobile Nav ---- */
+function toggleMobileNav() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+
+/* ---- Scroll Animations ---- */
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+revealEls.forEach(el => observer.observe(el));
+
+/* ---- Smooth nav scroll ---- */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const navH = 90;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - navH;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+
+/* ---- Set min date on form ---- */
+const dateInput = document.getElementById('fdate');
+if (dateInput) {
+  const today = new Date();
+  today.setDate(today.getDate() + 1);
+  dateInput.min = today.toISOString().split('T')[0];
+}
+</script>
+
+<!-- Local Business Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FoodService",
+  "name": "Food Inn Catering",
+  "description": "Premium event catering in Ottawa for corporate events, weddings, and private parties. Fresh ingredients, custom menus, professional service.",
+  "url": "https://foodinncatering.ca",
+  "telephone": "+16135550142",
+  "email": "hello@foodinncatering.ca",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ottawa",
+    "addressRegion": "ON",
+    "addressCountry": "CA"
+  },
+  "areaServed": ["Ottawa", "Gatineau", "Kanata", "Orleans", "Nepean", "Barrhaven"],
+  "servesCuisine": ["Canadian", "International"],
+  "priceRange": "$$",
+  "openingHours": ["Mo-Sa 08:00-20:00", "Su 10:00-17:00"],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "147"
+  }
+}
+</script>
+
+</body>
+</html>
